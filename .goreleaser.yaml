@@ -17,7 +17,7 @@ builds:
       - darwin
     goarch:
       - amd64
-    binary: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    binary: '{{ .ProjectName }}'
 archives:
 - format: zip
   name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
