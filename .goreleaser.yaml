@@ -4,9 +4,6 @@ env:
   - CGO_ENABLED=0
 before:
   hooks:
-    # We strongly recommend running tests to catch any regression before release.
-    # Even though, this an optional step.
-    - make test
     - make install-build-deps
 builds:
   -
