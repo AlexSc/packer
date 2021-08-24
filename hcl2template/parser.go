@@ -428,6 +428,7 @@ func (p *Parser) decodeDatasources(file *hcl.File, cfg *PackerConfig) hcl.Diagno
 			if cfg.Datasources == nil {
 				cfg.Datasources = Datasources{}
 			}
+			cfg.OrderedDatasources = append(cfg.OrderedDatasources, ref)
 			cfg.Datasources[ref] = *datasource
 		}
 	}

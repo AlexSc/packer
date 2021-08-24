@@ -137,6 +137,7 @@ func TestParser_complete(t *testing.T) {
 						value: cty.StringVal("foo"),
 					},
 				},
+				OrderedDatasources: []DatasourceRef{{Type: "amazon-ami", Name: "test"}},
 				Sources: map[SourceRef]SourceBlock{
 					refVBIsoUbuntu1204:  {Type: "virtualbox-iso", Name: "ubuntu-1204"},
 					refAWSEBSUbuntu1604: {Type: "amazon-ebs", Name: "ubuntu-1604"},

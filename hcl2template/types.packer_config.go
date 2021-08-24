@@ -45,6 +45,7 @@ type PackerConfig struct {
 	LocalVariables Variables
 
 	Datasources Datasources
+	OrderedDatasources []DatasourceRef
 
 	LocalBlocks []*LocalBlock
 
@@ -274,7 +275,8 @@ func (c *PackerConfig) evaluateLocalVariable(local *LocalBlock) hcl.Diagnostics 
 func (cfg *PackerConfig) evaluateDatasources(skipExecution bool) hcl.Diagnostics {
 	var diags hcl.Diagnostics
 
-	for ref, ds := range cfg.Datasources {
+	for _, ref := range cfg.OrderedDatasources {
+		ds := cfg.Datasources[ref]
 		if ds.value != (cty.Value{}) {
 			continue
 		}
